@@ -2,8 +2,18 @@ from typing import List, Union
 
 from pydantic import BaseModel
 
+class TicketBase(BaseModel):
+    comments: str
+
+class TicketCreate(TicketBase):
+    pass
+
+class Ticket(TicketBase):
+    plate: str
+
+
 class VehicleBase(BaseModel):
-    vehicle_plate: str
+    plate: str
     car_brand: str
     color: str
     
@@ -13,6 +23,7 @@ class VehicleCreate(VehicleBase):
 class Vehicle(VehicleBase):
     id: int
     owner_id : int
+    tickets: list[Ticket]
 
     class Config:
         orm_mode = True
@@ -33,10 +44,14 @@ class Person(PersonBase):
 
 
 class AgentBase(BaseModel):
-    agent_name: str
+    name: str
+    agent_identifier: int
 
 class AgentCreate(AgentBase):
     pass
 
 class Agent(AgentBase):
     id: int
+
+    class Config:
+        orm_mode = True
