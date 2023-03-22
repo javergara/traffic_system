@@ -1,39 +1,3 @@
-/*function getPeople(done) {
-
-    const results = fetch("http://127.0.0.1:8000/people/", {
-        'mode': 'cors',
-        'headers': {
-            'Access-Control-Allow-Origin': '*',
-        }
-    });
-
-    results
-        .then(response => response.json())
-        .then(data => {
-            done(data)
-        });
-
-}
-
-getPeople(data => {
-
-    data.results.forEach(person => {
-        const article = document.createRange().createContextualFragment(`
-        <td>${person.name}</td>
-        <td>${person.email}</td>
-        <td>
-            <button type="button" class="btn btn-sm btn-info">Editar</button>
-            <button type="button" class="btn btn-sm btn-danger">Borrar</button>
-        </td>
-
-        `);
-
-    const main = document.querySelector("#people_table");
-    main.append(article);
-
-    });
-})*/
-
 const API_URL = "http://127.0.0.1:8000";
 
 const HTMLResponse = document.querySelector("#people_table");
@@ -182,7 +146,7 @@ button_agent_borrar.addEventListener('click', (e)=> {
     delete_agent(input_agente_id_borrar.value);
 })
 function delete_agent(agent_id){
-    fetch(`${API_URL}/agents/${agent_id}`, {
+    fetch(`${API_URL}/agents/${agent_id}/`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'
@@ -206,7 +170,7 @@ button_vehicle_borrar.addEventListener('click', (e)=> {
     delete_vehicle(input_plate_borrar.value);
 })
 function delete_vehicle(plate){
-    fetch(`${API_URL}/vehicles/${plate}`, {
+    fetch(`${API_URL}/vehicles/${plate}/`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'
@@ -230,7 +194,7 @@ button_person_borrar.addEventListener('click', (e)=> {
     delete_person(input_person_borrar.value);
 })
 function delete_person(id){
-    fetch(`${API_URL}/people/${id}`, {
+    fetch(`${API_URL}/people/${id}/`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'
@@ -255,7 +219,7 @@ button_person_cambiar.addEventListener('click', (e)=> {
     update_person(input_person_cambiar.value,input_name_person_cambiar.value);
 })
 function update_person(id,person_name){
-    const url = new URL(`${API_URL}/people/${id}`);
+    const url = new URL(`${API_URL}/people/${id}/`);
     url.searchParams.append('name', person_name);
     fetch(url, {
         method: 'PATCH',
@@ -279,7 +243,7 @@ vehiculo_button_modificar.addEventListener('click', (e)=> {
     update_vehicle(placa_vehiculo_cambiar.value,marca_cambiar.value);
 })
 function update_vehicle(placa,marca){
-    const url = new URL(`${API_URL}/vehicles/${placa}`);
+    const url = new URL(`${API_URL}/vehicles/${placa}/`);
     url.searchParams.append('brand', marca);
     fetch(url, {
         method: 'PATCH',
@@ -303,7 +267,7 @@ agente_button_modificar.addEventListener('click', (e)=> {
     update_agent(id_agente_cambiar.value,nombre_agente_cambiar.value);
 })
 function update_agent(id,nombre){
-    const url = new URL(`${API_URL}/agents/${id}`);
+    const url = new URL(`${API_URL}/agents/${id}/`);
     url.searchParams.append('name', nombre);
     fetch(url, {
         method: 'PATCH',
