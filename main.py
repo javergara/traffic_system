@@ -18,14 +18,8 @@ SECRET = "N5TEST"
 
 app = FastAPI()
 
-origins = [
-    "http://localhost",
-    "http://localhost:8080",
-    "http://127.0.0.1",
-    "http://127.0.0.1:5500",
-]
-
-# Enable CORS for all routes
+# Set up CORS
+origins = ["http://localhost:3000"]  # Replace with your frontend domain
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
