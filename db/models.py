@@ -30,6 +30,7 @@ class Ticket(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     created = Column(DateTime(timezone=True), default=datetime.datetime.utcnow)
+    #created= Column(str, default="cow_datetime")
     comments = Column(String)
     plate = Column(String, ForeignKey("vehicles.plate"))
 
@@ -41,4 +42,5 @@ class Agent(Base):
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String)
     agent_identifier = Column(Integer, unique= True)
+    password = Column(String)
 

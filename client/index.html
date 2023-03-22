@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Interfaz Administrativa</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<h1>Interfaz Administrativa</h1>
+		<ul class="nav nav-tabs">
+			<li class="nav-item">
+				<a class="nav-link active" data-toggle="tab" href="#personas">Personas</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" data-toggle="tab" href="#vehiculos">Vehículos</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" data-toggle="tab" href="#oficiales">Oficiales</a>
+			</li>
+		</ul>
+		<div class="tab-content">
+			<div id="personas" class="tab-pane active">
+				<h2>Personas</h2>
+				<form>
+					<div class="form-group">
+						<label for="nombre_persona">Nombre:</label>
+						<input type="text" class="form-control" id="nombre_persona">
+					</div>
+					<div class="form-group">
+						<label for="correo_persona">Correo Electrónico:</label>
+						<input type="email" class="form-control" id="correo_persona">
+					</div>
+					<button type="submit" class="btn btn-primary" id="person_button">Crear</button>
+				</form>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Nombre</th>
+							<th>Correo Electrónico</th>
+							<th>ID</th>
+						</tr>
+					</thead>
+					<tbody id="people_table">						
+					</tbody>
+				</table>
+				<h3>Modificar o borrar personas</h3>
+				<form>
+					<div class="form-group">
+						<label for="id_persona_cambiar">ID de la persona a modificar</label>
+						<input type="number" class="form-control" id="id_persona_cambiar">
+					</div>
+					<div class="form-group">
+						<label for="nombre_persona_cambiar">nombre de la persona a modificar</label>
+						<input type="text" class="form-control" id="nombre_persona_cambiar">
+					</div>
+					<button type="button" class="btn btn-sm btn-info" id="persona_button_modificar">Editar</button>
+					<div class="form-group">
+						<label for="id_persona_borrar">ID de la persona a borrar</label>
+						<input type="number" class="form-control" id="id_persona_borrar">
+					</div>
+					<button type="button" class="btn btn-sm btn-danger" id="persona_button_borrar">Borrar</button>
+				</form>
+			</div>
+
+			<div id="vehiculos" class="tab-pane">
+				<h2>Vehículos</h2>
+				<form>
+					<div class="form-group">
+						<label for="person_id">Id de la persona:</label>
+						<input type="number" class="form-control" id="person_id">
+					</div>
+					<div class="form-group">
+						<label for="placa_vehiculo">Placa:</label>
+						<input type="text" class="form-control" id="placa_vehiculo">
+					</div>
+					<div class="form-group">
+						<label for="marca_carro">Marca del carro:</label>
+						<input type="text" class="form-control" id="marca_carro">
+					</div>
+					<div class="form-group">
+						<label for="color_carro">Color del carro:</label>
+						<input type="text" class="form-control" id="color_carro">
+					</div>
+					<button type="submit" class="btn btn-primary" id="button_vehicle">Crear</button>
+				</form>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Placa</th>
+							<th>Marca del carro</th>
+							<th>Color del carro</th>
+						</tr>
+					</thead>
+					<tbody id="vehicle_table">						
+					</tbody>
+				</table>
+				<h3>Modificar o borrar vehiculos</h3>
+				<form>
+					<div class="form-group">
+						<label for="placa_vehiculo_cambiar">Placa del vehiculo a modificar</label>
+						<input type="text" class="form-control" id="placa_vehiculo_cambiar">
+					</div>
+					<div class="form-group">
+						<label for="marca_cambiar">marca del vehiculo a modificar</label>
+						<input type="text" class="form-control" id="marca_cambiar">
+					</div>
+					<button type="button" class="btn btn-sm btn-info" id="vehiculo_button_modificar">Editar</button>
+					<div class="form-group">
+						<label for="plate_vehiculo_borrar">Placa del vehiculo a borrar</label>
+						<input type="text" class="form-control" id="plate_vehiculo_borrar">
+					</div>
+					<button type="button" class="btn btn-sm btn-danger" id="vehiculo_button_borrar">Borrar</button>
+				</form>
+			</div>
+			
+			<div id="oficiales" class="tab-pane">
+				<h2>Oficiales</h2>
+				<form>
+					<div class="form-group">
+						<label for="nombre_agente">Nombre:</label>
+						<input type="text" class="form-control" id="nombre_agente">
+					</div>
+					<div class="form-group">
+						<label for="id_agente">Identificador del agente:</label>
+						<input type="number" class="form-control" id="id_agente">
+					</div>
+					<div class="form-group">
+						<label for="agent_password">Password:</label>
+						<input type="str" class="form-control" id="agent_password">
+					</div>
+					<button type="submit" class="btn btn-primary" id="button_agent">Crear</button>
+				</form>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Nombre</th>
+							<th>Identificador del agente</th>
+						</tr>
+					</thead>
+					<tbody id="agent_table">						
+					</tbody>
+				</table>
+				<h3>Modificar o borrar agentes</h3>
+				<form>
+					<div class="form-group">
+						<label for="id_agente_cambiar">ID del agente a modificar</label>
+						<input type="number" class="form-control" id="id_agente_cambiar">
+					</div>
+					<div class="form-group">
+						<label for="nombre_agente_cambiar">Nombre del agente a modificar</label>
+						<input type="text" class="form-control" id="nombre_agente_cambiar">
+					</div>
+					<button type="button" class="btn btn-sm btn-info" id="agente_button_modificar">Editar</button>
+					<div class="form-group">
+						<label for="id_agente_borrar">ID del agente a borrar</label>
+						<input type="number" class="form-control" id="id_agente_borrar">
+					</div>
+					<button type="button" class="btn btn-sm btn-danger" id="agente_button_borrar">Borrar</button>
+				</form>
+			</div>
+			
+		</div>
+	</div>
+	<script src="index.js"></script>
+</body>
+</html>

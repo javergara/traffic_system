@@ -1,4 +1,5 @@
 from typing import List, Union
+from datetime import datetime
 
 from pydantic import BaseModel
 
@@ -10,6 +11,11 @@ class TicketCreate(TicketBase):
 
 class Ticket(TicketBase):
     plate: str
+    created: datetime
+
+
+    class Config:
+        orm_mode = True
 
 
 class VehicleBase(BaseModel):
@@ -48,7 +54,7 @@ class AgentBase(BaseModel):
     agent_identifier: int
 
 class AgentCreate(AgentBase):
-    pass
+    password: str
 
 class Agent(AgentBase):
     id: int
